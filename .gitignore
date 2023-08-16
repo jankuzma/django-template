@@ -1,3 +1,6 @@
+env/.env
+.idea
+
 # Created by https://www.toptal.com/developers/gitignore/api/pycharm,macos,django,venv
 # Edit at https://www.toptal.com/developers/gitignore?templates=pycharm,macos,django,venv
 
@@ -134,9 +137,7 @@ celerybeat.pid
 # Environments
 .env
 .venv
-env/
 venv/
-ENV/
 env.bak/
 venv.bak/
 
