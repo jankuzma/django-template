@@ -10,8 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 from pathlib import Path
-import environ
 import os
+
+import environ
+import dj_database_url
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,7 +27,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, 'env', '.env'))
 SECRET_KEY = os.environ.get('DJ_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get('DJ_DEBUG', False))
 
 ALLOWED_HOSTS = []
 
@@ -80,6 +83,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+DATABASE_URL = os.environ.get('DB_CONNECTION_STRING')
+db_config = dj_database_url.config(default=DATABASE_URL, conn_max_age=500, ssl_require=False)
+DATABASES['default'].update(db_config)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
