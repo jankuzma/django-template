@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJ_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DJ_DEBUG', False))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('DJ_ALLOWED_HOSTS', '').split()
 
 # Application definition
 
