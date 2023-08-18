@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,18 +10,35 @@
     <title>Django Template - {% block title %}Welcome{% endblock %}</title>
 
     {% block styles %}
+        <link rel="stylesheet" href="{% static 'styles/bootstrap.min.css' %}">
     {% endblock %}
 
     {% block scripts %}
+        <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
     {% endblock %}
 </head>
 <body>
 
 {% include 'partials/navbar.html' %}
 
-{% block container %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-8">
+            {% block container %}{% endblock %}
+        </div>
+        <div class="col-4">
+            {% block aside %}{% endblock %}
+        </div>
+    </div>
+</div>
 
-{% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% block footer %}{% endblock %}
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
