@@ -1,6 +1,6 @@
 # Django Template 
 #### To create the project use:
-`django-admin startproject --template <repo .zip url> <project_name> <directory>`
+`django-admin startproject --template https://github.com/jankuzma/django-template/archive/refs/heads/template.zip <project_name> <directory>`
 ## How to run ?
 #### chronologically
 - create pipenv environment `pipenv install` then `pipenv shell`
